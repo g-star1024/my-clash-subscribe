@@ -1,6 +1,6 @@
 name: Auto Update Clash Config
 
-on:
+于:
   schedule:
     # 每8小时运行一次 (UTC时间，可根据需要调整)
     - cron: '0 */8 * * *'
@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install js-yaml
+      - name: Install dependencies (none needed)
+        run: echo "No external dependencies required"
 
       - name: Run conversion script
         run: node scripts/convert.js
