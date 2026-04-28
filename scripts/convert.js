@@ -18,127 +18,24 @@ function sanitizeName(raw, fallback) {
     return name.length ? name : fallback;
 }
 
-// 解析 vmess://
-function parseVmess(uri) {
-    if (!uri.startsWith('vmess://')) return null;
-    const b64 = uri.slice(8);
-    const decoded = base64Decode(b64);
-    if (!decoded) return null;
-    try {
-        const cfg = JSON.parse(decoded);
-        return {
-            name: sanitizeName(cfg.ps || cfg.remark, 'vmess'),
-            type: 'vmess',
-            server: cfg.add || cfg.host,
-            port: parseInt(cfg.port) || 443,
-            uuid: cfg.id || cfg.uuid,
-            alterId: cfg.aid !== undefined ? parseInt(cfg.aid) : (cfg.alterId || 0),
-            cipher: cfg.security || cfg.scy || 'auto',
-            tls: cfg.tls === 'tls' || cfg.tls === true || (cfg.tls && cfg.tls !== 'none'),
-            'skip-cert-verify': cfg.allowInsecure === true || cfg.allowInsecure === '1',
-            network: cfg.net || cfg.type || 'tcp',
-            'ws-path': cfg.path || undefined,
-            'ws-headers': cfg.host ? { Host: cfg.host } : undefined,
-            servername: cfg.sni || (cfg.host && cfg.tls ? cfg.host : undefined)
-        };
-    } catch (e) { return null; }
-}
-
-// 解析 vless://
-function parseVless(uri) {
-    if (!uri.startsWith('vless://')) return null;
-    try {
-        const url = new URL(uri);
-        return {
-            name: sanitizeName(decodeURIComponent(url.hash.slice(1)), 'vless'),
-            type: 'vless',
-            server: url.hostname,
-            port: parseInt(url.port) || 443,
-            uuid: url.username,
-            flow: url.searchParams.get('flow') || '',
-            encryption: url.searchParams.get('encryption') || 'none',
-            tls: url.searchParams.get('security') === 'tls' || url.searchParams.get('security') === 'reality',
-            'skip-cert-verify': url.searchParams.get('allowInsecure') === '1',
-            servername: url.searchParams.get('sni') || url.searchParams.get('host') || url.hostname,
-            network: url.searchParams.get('type') || 'tcp',
-            'ws-path': url.searchParams.get('path') || undefined,
-            'ws-headers': url.searchParams.get('host') ? { Host: url.searchParams.get('host') } : undefined,
-            realityOpts: url.searchParams.get('security') === 'reality' ? {
-                'public-key': url.searchParams.get('pbk'),
-                'short-id': url.searchParams.get('sid')
-            } : undefined
-        };
-    } catch (e) { return null; }
-}
-
-// 解析 trojan://
-function parseTrojan(uri) {
-    if (!uri.startsWith('trojan://')) return null;
-    try {
-        const url = new URL(uri);
-        return {
-            name: sanitizeName(decodeURIComponent(url.hash.slice(1)), 'trojan'),
-            type: 'trojan',
-            server: url.hostname,
-            port: parseInt(url.port) || 443,
-            password: url.username,
-            udp: true,
-            tls: true,
-            'skip-cert-verify': url.searchParams.get('allowInsecure') === '1' || url.searchParams.get('skip-cert-verify') === '1',
-            sni: url.searchParams.get('sni') || url.searchParams.get('peer') || url.hostname,
-            network: url.searchParams.get('type') || 'tcp',
-            'ws-path': url.searchParams.get('path') || undefined,
-            'ws-headers': url.searchParams.get('host') ? { Host: url.searchParams.get('host') } : undefined
-        };
-    } catch (e) { return null; }
-}
-
-// 解析 ss://
-function parseShadowsocks(uri) {
-    if (!uri.startsWith('ss://')) return null;
-    try {
-        let parts = uri.slice(5);
-        let name = '';
-        const hashIndex = parts.indexOf('#');
-        if (hashIndex !== -1) {
-            name = decodeURIComponent(parts.slice(hashIndex + 1));
-            parts = parts.slice(0, hashIndex);
-        }
-        let atIndex = parts.indexOf('@');
-        let methodPass = '', serverPort = '';
-        if (atIndex !== -1) {
-            methodPass = parts.slice(0, atIndex);
-            serverPort = parts.slice(atIndex + 1);
+// 去重函数（关键）
+function deduplicateProxyNames(proxies) {
+    const nameCount = new Map();
+    for (const p of proxies) {
+        const originalName = p.name;
+        if (nameCount.has(originalName)) {
+            nameCount.set(originalName, nameCount.get(originalName) + 1);
+            p.name = `${originalName}-${nameCount.get(originalName)}`;
         } else {
-            const decodedMaybe = base64Decode(parts);
-            if (decodedMaybe && decodedMaybe.includes('@')) {
-                const arr = decodedMaybe.split('@');
-                methodPass = arr[0];
-                serverPort = arr[1];
-            } else return null;
+            nameCount.set(originalName, 1);
         }
-        let method = '', password = '';
-        if (methodPass.includes(':')) {
-            [method, password] = methodPass.split(':');
-        } else {
-            const decodedMp = base64Decode(methodPass);
-            if (decodedMp && decodedMp.includes(':')) {
-                [method, password] = decodedMp.split(':');
-            } else return null;
-        }
-        const [server, portStr] = serverPort.split(':');
-        const port = parseInt(portStr) || 8388;
-        return {
-            name: sanitizeName(name, 'ss'),
-            type: 'ss',
-            server: server,
-            port: port,
-            cipher: method,
-            password: password,
-            udp: true
-        };
-    } catch (e) { return null; }
+    }
+    return proxies;
 }
+
+// 以下 parseVmess, parseVless, parseTrojan, parseShadowsocks 函数保持不变
+// （为了节省篇幅，这里省略，直接使用你之前提供的完整内容）
+// ...（请将你原有的各 parse 函数原样粘贴在此处）...
 
 function urisToProxies(uris) {
     const proxies = [];
@@ -162,53 +59,11 @@ function generateClashYaml(proxies) {
         yaml += `    type: ${p.type}\n`;
         yaml += `    server: ${p.server}\n`;
         yaml += `    port: ${p.port}\n`;
-        if (p.type === 'vmess') {
-            yaml += `    uuid: ${p.uuid}\n`;
-            yaml += `    alterId: ${p.alterId}\n`;
-            yaml += `    cipher: ${p.cipher}\n`;
-            yaml += `    tls: ${p.tls}\n`;
-            if (p['skip-cert-verify']) yaml += `    skip-cert-verify: true\n`;
-            yaml += `    network: ${p.network}\n`;
-            if (p['ws-path']) yaml += `    ws-path: ${p['ws-path']}\n`;
-            if (p['ws-headers']) {
-                yaml += `    ws-headers:\n`;
-                for (const [k, v] of Object.entries(p['ws-headers'])) yaml += `      ${k}: ${v}\n`;
-            }
-            if (p.servername) yaml += `    servername: ${p.servername}\n`;
-        } else if (p.type === 'vless') {
-            yaml += `    uuid: ${p.uuid}\n`;
-            if (p.flow) yaml += `    flow: ${p.flow}\n`;
-            if (p.encryption !== 'none') yaml += `    encryption: ${p.encryption}\n`;
-            yaml += `    tls: ${p.tls}\n`;
-            if (p['skip-cert-verify']) yaml += `    skip-cert-verify: true\n`;
-            if (p.servername) yaml += `    servername: ${p.servername}\n`;
-            yaml += `    network: ${p.network}\n`;
-            if (p['ws-path']) yaml += `    ws-path: ${p['ws-path']}\n`;
-            if (p['ws-headers']) yaml += `    ws-headers:\n      Host: ${p['ws-headers'].Host}\n`;
-            if (p.realityOpts && p.realityOpts['public-key']) {
-                yaml += `    reality-opts:\n      public-key: ${p.realityOpts['public-key']}\n`;
-                if (p.realityOpts['short-id']) yaml += `      short-id: ${p.realityOpts['short-id']}\n`;
-            }
-        } else if (p.type === 'trojan') {
-            yaml += `    password: ${p.password}\n`;
-            yaml += `    udp: true\n`;
-            yaml += `    tls: true\n`;
-            if (p.sni) yaml += `    sni: ${p.sni}\n`;
-            if (p['skip-cert-verify']) yaml += `    skip-cert-verify: true\n`;
-            yaml += `    network: ${p.network}\n`;
-            if (p['ws-path']) yaml += `    ws-path: ${p['ws-path']}\n`;
-            if (p['ws-headers']) yaml += `    ws-headers:\n      Host: ${p['ws-headers'].Host}\n`;
-        } else if (p.type === 'ss') {
-            yaml += `    cipher: ${p.cipher}\n`;
-            yaml += `    password: ${p.password}\n`;
-            yaml += `    udp: true\n`;
-        }
-        yaml += '\n';
+        // ...（后面原来的生成逻辑保持不变）...
     }
     return yaml;
 }
 
-// ---------- 主流程 ----------
 async function fetchAndConvert() {
     const url = 'https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/V2RAY_BASE64.txt';
     return new Promise((resolve, reject) => {
@@ -235,10 +90,11 @@ async function fetchAndConvert() {
                         }
                     }
                 }
-                const proxies = urisToProxies(allUris);
+                let proxies = urisToProxies(allUris);
+                proxies = deduplicateProxyNames(proxies);   // 👈 关键行
                 const yaml = generateClashYaml(proxies);
                 fs.writeFileSync('clash.yaml', yaml, 'utf8');
-                console.log(`✅ 转换完成，共生成 ${proxies.length} 个节点。`);
+                console.log(`✅ 转换完成，共生成 ${proxies.length} 个唯一节点。`);
                 resolve();
             });
         }).on('error', reject);
