@@ -1,5 +1,5 @@
 # Clash 配置文件 (自动更新)
-# 生成时间: Tue, 28 Apr 2026 02:40:37 GMT
+# 生成时间: Tue, 28 Apr 2026 02:54:37 GMT
 # 源订阅: roosterkid/openproxylist
 
 proxies:
@@ -190,17 +190,6 @@ proxies:
     password: be4a6fd2209f62a7
     udp: true
 
-  - name: "🇭🇰openproxylist.com vless-HK"
-    type: vless
-    server: 8.218.117.111
-    port: 443
-    uuid: 3e7f67de-648e-4871-b51a-a225214d41ee
-    tls: true
-    servername: wcs.adobe.com
-    network: tcp
-    reality-opts:
-      public-key: TRP10HqKUXEQ3O-cfsq93DycfBmbJe9KM36yvSa8Mmw
-
   - name: "🇳🇱openproxylist.com vless-NL"
     type: vless
     server: 95.85.248.69
@@ -389,7 +378,7 @@ proxies:
     tls: false
     network: tcp
 
-  - name: "🇭🇰openproxylist.com vless-HK-2"
+  - name: "🇭🇰openproxylist.com vless-HK"
     type: vless
     server: 104.18.46.50
     port: 443
@@ -501,18 +490,6 @@ proxies:
     ws-headers:
       Host: fire.rezazzz.ir
 
-  - name: "🇱🇹openproxylist.com vless-LT"
-    type: vless
-    server: 188.214.129.172
-    port: 443
-    uuid: 1c45e98c-8a4a-45e7-acc5-3a3cc962f463
-    flow: xtls-rprx-vision
-    tls: true
-    servername: flowwow.com
-    network: tcp
-    reality-opts:
-      public-key: h7CCbT_1gwxhQGM-4_pZkNRbAe_I6YFQM6jO9x6uORw
-
   - name: "🇹🇼openproxylist.com ss-TW-7"
     type: ss
     server: nbmrcg0034686rw.cybervena.com
@@ -520,18 +497,6 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
     udp: true
-
-  - name: "🇮🇹openproxylist.com vless-IT"
-    type: vless
-    server: 82.118.16.61
-    port: 8443
-    uuid: e033ef6e-ab4b-47d4-a523-ff568d2c8dbb
-    flow: xtls-rprx-vision
-    tls: true
-    servername: tradingview.com
-    network: tcp
-    reality-opts:
-      public-key: TH8C9sgNuMRVR3o5QehXPgYw8PWjoHrH2rVQF4JWwGI
 
   - name: "🇫🇷openproxylist.com trojan-FR-2"
     type: trojan
@@ -545,18 +510,6 @@ proxies:
     ws-path: /assignment
     ws-headers:
       Host: www.ignitelimit.com
-
-  - name: "🇦🇱openproxylist.com vless-AL"
-    type: vless
-    server: 45.15.171.80
-    port: 8443
-    uuid: e033ef6e-ab4b-47d4-a523-ff568d2c8dbb
-    flow: xtls-rprx-vision
-    tls: true
-    servername: tradingview.com
-    network: tcp
-    reality-opts:
-      public-key: TH8C9sgNuMRVR3o5QehXPgYw8PWjoHrH2rVQF4JWwGI
 
   - name: "🇴🇲openproxylist.com vless-OM"
     type: vless
@@ -760,30 +713,6 @@ proxies:
     skip-cert-verify: true
     servername: uk1.fromblancwithlove.com
     network: tcp
-
-  - name: "🇨🇦openproxylist.com vless-CA"
-    type: vless
-    server: 85.208.108.63
-    port: 8443
-    uuid: e033ef6e-ab4b-47d4-a523-ff568d2c8dbb
-    flow: xtls-rprx-vision
-    tls: true
-    servername: tradingview.com
-    network: tcp
-    reality-opts:
-      public-key: TH8C9sgNuMRVR3o5QehXPgYw8PWjoHrH2rVQF4JWwGI
-
-  - name: "🇷🇸openproxylist.com vless-RS"
-    type: vless
-    server: 2.56.172.83
-    port: 8443
-    uuid: e033ef6e-ab4b-47d4-a523-ff568d2c8dbb
-    flow: xtls-rprx-vision
-    tls: true
-    servername: tradingview.com
-    network: tcp
-    reality-opts:
-      public-key: TH8C9sgNuMRVR3o5QehXPgYw8PWjoHrH2rVQF4JWwGI
 
   - name: "🇳🇱openproxylist.com vless-NL-3"
     type: vless
@@ -1152,15 +1081,6 @@ proxies:
 
   - name: "🇳🇱openproxylist.com vless-NL-4"
     type: vless
-    server: download.lastilhame.monster
-    port: 443
-    uuid: a8da758c-510d-4827-83cf-2f2b51c49c5b
-    tls: true
-    servername: download.lastilhame.monster
-    network: tcp
-
-  - name: "🇳🇱openproxylist.com vless-NL-5"
-    type: vless
     server: 5.180.97.139
     port: 443
     uuid: a384c715-aeb5-45e8-859b-f687ca6c083f
@@ -1285,7 +1205,7 @@ proxies:
     password: oZIoA69Q8yhcQV8ka3Pa3A
     udp: true
 
-  - name: "🇳🇱openproxylist.com vless-NL-6"
+  - name: "🇳🇱openproxylist.com vless-NL-5"
     type: vless
     server: 51.158.206.97
     port: 23576
@@ -1405,7 +1325,7 @@ proxies:
     password: oZIoA69Q8yhcQV8ka3Pa3A
     udp: true
 
-  - name: "🇦🇱openproxylist.com vless-AL-2"
+  - name: "🇦🇱openproxylist.com vless-AL"
     type: vless
     server: pq-albania1.09vpn.com
     port: 80
@@ -1422,7 +1342,7 @@ proxies:
     password: FoOiGlkAA9yPEGP
     udp: true
 
-  - name: "🇳🇱openproxylist.com vless-NL-7"
+  - name: "🇳🇱openproxylist.com vless-NL-6"
     type: vless
     server: nl-90w-c.southnetworks.cloud
     port: 80
@@ -1451,7 +1371,7 @@ proxies:
     password: eafad96826c79ddd
     udp: true
 
-  - name: "🇳🇱openproxylist.com vless-NL-8"
+  - name: "🇳🇱openproxylist.com vless-NL-7"
     type: vless
     server: midorinote.ru
     port: 8443
