@@ -1,5 +1,5 @@
 # Clash 配置文件 (自动更新)
-# 生成时间: Tue, 28 Apr 2026 02:28:01 GMT
+# 生成时间: Tue, 28 Apr 2026 02:40:37 GMT
 # 源订阅: roosterkid/openproxylist
 
 proxies:
@@ -1158,7 +1158,6 @@ proxies:
     tls: true
     servername: download.lastilhame.monster
     network: tcp
-    reality-opts:
 
   - name: "🇳🇱openproxylist.com vless-NL-5"
     type: vless
