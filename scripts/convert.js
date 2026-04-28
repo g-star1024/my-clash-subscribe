@@ -38,7 +38,6 @@ function deduplicateProxyNames(proxies) {
 }
 
 // ----------------------------- 解析各协议 -----------------------------
-// 解析 vmess://
 function parseVmess(uri) {
     if (!uri.startsWith('vmess://')) return null;
     const b64 = uri.slice(8);
@@ -72,7 +71,6 @@ function parseVmess(uri) {
     }
 }
 
-// 解析 vless://
 function parseVless(uri) {
     if (!uri.startsWith('vless://')) return null;
     try {
@@ -104,11 +102,16 @@ function parseVless(uri) {
         };
         if (encryption !== "none") proxy.encryption = encryption;
         if (security === "reality") {
-            proxy.realityOpts = {};
             const pbk = params.get('pbk');
             const sid = params.get('sid');
-            if (pbk) proxy.realityOpts["public-key"] = pbk;
-            if (sid) proxy.realityOpts["short-id"] = sid;
+            // 只添加非空的 reality 字段
+            if (pbk || sid) {
+                proxy.realityOpts = {};
+                if (pbk && pbk.trim() !== "") proxy.realityOpts["public-key"] = pbk;
+                if (sid && sid.trim() !== "") proxy.realityOpts["short-id"] = sid;
+                // 如果 realityOpts 为空对象，则删除
+                if (Object.keys(proxy.realityOpts).length === 0) delete proxy.realityOpts;
+            }
         }
         if (type === "ws" && path) proxy["ws-path"] = path;
         if (type === "ws" && host) proxy["ws-headers"] = { Host: host };
@@ -119,7 +122,6 @@ function parseVless(uri) {
     }
 }
 
-// 解析 trojan://
 function parseTrojan(uri) {
     if (!uri.startsWith('trojan://')) return null;
     try {
@@ -157,7 +159,6 @@ function parseTrojan(uri) {
     }
 }
 
-// 解析 ss://
 function parseShadowsocks(uri) {
     if (!uri.startsWith('ss://')) return null;
     try {
@@ -210,7 +211,6 @@ function parseShadowsocks(uri) {
     }
 }
 
-// 将 URI 数组转换为代理对象数组
 function urisToProxies(uris) {
     const proxies = [];
     for (const uri of uris) {
@@ -226,7 +226,6 @@ function urisToProxies(uris) {
     return proxies;
 }
 
-// 生成 Clash YAML 内容
 function generateClashYaml(proxies) {
     if (!proxies.length) {
         return "# 未解析到有效节点，请稍后重试或检查源格式\n";
@@ -266,6 +265,7 @@ function generateClashYaml(proxies) {
             if (p["ws-path"]) yaml += `    ws-path: ${p["ws-path"]}\n`;
             if (p["ws-headers"]) yaml += `    ws-headers:\n      Host: ${p["ws-headers"].Host}\n`;
             if (p["grpc-service-name"]) yaml += `    grpc-service-name: ${p["grpc-service-name"]}\n`;
+            // 关键修改：只输出非空的 reality 字段
             if (p.realityOpts) {
                 yaml += `    reality-opts:\n`;
                 if (p.realityOpts["public-key"]) yaml += `      public-key: ${p.realityOpts["public-key"]}\n`;
@@ -320,7 +320,7 @@ async function fetchAndConvert() {
                     }
                 }
                 let proxies = urisToProxies(allUris);
-                proxies = deduplicateProxyNames(proxies);   // 去重
+                proxies = deduplicateProxyNames(proxies);
                 const yaml = generateClashYaml(proxies);
                 fs.writeFileSync("clash.yaml", yaml, "utf8");
                 console.log(`✅ 转换完成，共生成 ${proxies.length} 个唯一节点。`);
