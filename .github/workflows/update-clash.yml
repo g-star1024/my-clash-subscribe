@@ -1,6 +1,6 @@
 name: Auto Update Clash Config
 
-于:
+on:
   schedule:
     # 每8小时运行一次 (UTC时间，可根据需要调整)
     - cron: '0 */8 * * *'
