@@ -88,6 +88,18 @@ function parseVless(uri) {
         const path = params.get('path') || "";
         const flow = params.get('flow') || "";
         const encryption = params.get('encryption') || "none";
+        
+        // ----- 关键修改：Reality 完整性校验 -----
+        if (security === "reality") {
+            const pbk = params.get('pbk');
+            const sid = params.get('sid');
+            // 必须同时存在有效的 public-key 和 short-id，否则丢弃该节点
+            if (!pbk || !sid || pbk.trim() === "" || sid.trim() === "") {
+                console.warn(`丢弃不完整的 Reality 节点: ${name} (缺少 public-key 或 short-id)`);
+                return null;
+            }
+        }
+        
         const proxy = {
             name: sanitizeName(name, "vless"),
             type: "vless",
@@ -101,18 +113,17 @@ function parseVless(uri) {
             servername: sni || (security === "tls" ? server : ""),
         };
         if (encryption !== "none") proxy.encryption = encryption;
+        
+        // 只有通过校验的 Reality 才会添加 realityOpts
         if (security === "reality") {
             const pbk = params.get('pbk');
             const sid = params.get('sid');
-            // 只添加非空的 reality 字段
-            if (pbk || sid) {
-                proxy.realityOpts = {};
-                if (pbk && pbk.trim() !== "") proxy.realityOpts["public-key"] = pbk;
-                if (sid && sid.trim() !== "") proxy.realityOpts["short-id"] = sid;
-                // 如果 realityOpts 为空对象，则删除
-                if (Object.keys(proxy.realityOpts).length === 0) delete proxy.realityOpts;
-            }
+            proxy.realityOpts = {
+                "public-key": pbk,
+                "short-id": sid
+            };
         }
+        
         if (type === "ws" && path) proxy["ws-path"] = path;
         if (type === "ws" && host) proxy["ws-headers"] = { Host: host };
         if (type === "grpc" && path) proxy["grpc-service-name"] = path;
@@ -265,11 +276,11 @@ function generateClashYaml(proxies) {
             if (p["ws-path"]) yaml += `    ws-path: ${p["ws-path"]}\n`;
             if (p["ws-headers"]) yaml += `    ws-headers:\n      Host: ${p["ws-headers"].Host}\n`;
             if (p["grpc-service-name"]) yaml += `    grpc-service-name: ${p["grpc-service-name"]}\n`;
-            // 关键修改：只输出非空的 reality 字段
+            // 只有完整的 realityOpts 才会输出
             if (p.realityOpts) {
                 yaml += `    reality-opts:\n`;
-                if (p.realityOpts["public-key"]) yaml += `      public-key: ${p.realityOpts["public-key"]}\n`;
-                if (p.realityOpts["short-id"]) yaml += `      short-id: ${p.realityOpts["short-id"]}\n`;
+                yaml += `      public-key: ${p.realityOpts["public-key"]}\n`;
+                yaml += `      short-id: ${p.realityOpts["short-id"]}\n`;
             }
         }
         else if (p.type === "trojan") {
