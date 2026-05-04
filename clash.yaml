@@ -1,15 +1,46 @@
 # Clash 配置文件 (严格格式自动生成)
-# 生成时间: Mon, 04 May 2026 02:30:33 GMT
+# 生成时间: Mon, 04 May 2026 10:09:34 GMT
 # 源订阅: roosterkid/openproxylist
 
 proxies:
-  - name: "🇺🇸openproxylist.com ss-US"
-    type: ss
-    server: 199.195.254.136
-    port: 23851
-    cipher: chacha20-poly1305
-    password: FznETS8DU80MSw3nyS3hQSnU
+  - name: "🇬🇧openproxylist.com vmess-GB"
+    type: vmess
+    server: cg1c12.waimaojd.com
+    port: 443
+    uuid: 0632bfa9-b15c-4257-8c75-32f7c0c53b27
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /api/v1/graphql
+    ws-headers:
+      Host: cg1c12.waimaojd.com
+    servername: cg1c12.waimaojd.com
+
+  - name: "🇫🇷openproxylist.com trojan-FR"
+    type: trojan
+    server: 13.39.30.161
+    port: 22222
+    password: telegram-id-privatevpns
     udp: true
+    tls: true
+    sni: 13.39.30.161
+    network: tcp
+
+  - name: "🇫🇮openproxylist.com vmess-FI"
+    type: vmess
+    server: free-v7-09.elbrusway.online
+    port: 443
+    uuid: b4bc8fcd-739e-4525-8bed-20d10e850988
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-path: /vmess-balkar
+    ws-headers:
+      Host: free-v7-09.elbrusway.online
+    servername: free-v7-09.elbrusway.online
 
   - name: "🇭🇰openproxylist.com ss-HK"
     type: ss
@@ -17,14 +48,6 @@ proxies:
     port: 40210
     cipher: aes-256-gcm
     password: 7e1dd4c55bf85da5
-    udp: true
-
-  - name: "🇯🇵openproxylist.com ss-JP"
-    type: ss
-    server: 185.141.219.110
-    port: 30312
-    cipher: aes-256-gcm
-    password: 99394cfebe6c0906
     udp: true
 
   - name: "🇯🇵openproxylist.com trojan-JP"
@@ -40,7 +63,7 @@ proxies:
 
   - name: "🇬🇧openproxylist.com ss-GB"
     type: ss
-    server: series-a1.samanehha.co
+    server: series-a2.samanehha.co
     port: 443
     cipher: chacha20-ietf-poly1305
     password: W74XFALLLuw6m5IA
@@ -62,14 +85,6 @@ proxies:
     password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
     udp: true
 
-  - name: "🇳🇱openproxylist.com ss-NL"
-    type: ss
-    server: 108.181.58.239
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: CJmTCCx7Ltud
-    udp: true
-
   - name: "🇳🇱openproxylist.com vmess-NL"
     type: vmess
     server: v30.hdacd.com
@@ -80,19 +95,9 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇳🇱openproxylist.com trojan-NL"
-    type: trojan
-    server: hl-freedom-1.undef.network
-    port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
-    udp: true
-    tls: true
-    sni: HL-FREEDOM-1.UNDEF.NETWORK
-    network: tcp
-
   - name: "🇹🇼openproxylist.com ss-TW-3"
     type: ss
-    server: r3mrcg007117fb8.cybervena.com
+    server: 111.248.101.252
     port: 50099
     cipher: chacha20-ietf-poly1305
     password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
@@ -110,18 +115,18 @@ proxies:
     ws-headers:
       Host: babayaga-6i7.pages.dev
 
-  - name: "🇩🇪openproxylist.com trojan-DE"
+  - name: "🇦🇲openproxylist.com trojan-AM"
     type: trojan
-    server: 104.20.5.134
-    port: 443
-    password: mSzFVhUczD
+    server: 170.168.102.234
+    port: 2083
+    password: q2jXRWncMA7pQren_VjQKhSQfoBWK_
     udp: true
     tls: true
-    sni: abest.api-tel.xyz
+    sni: xo.e0f.cx
     network: ws
-    ws-path: /
+    ws-path: /trojan-ws
     ws-headers:
-      Host: abest.api-tel.xyz
+      Host: xo.e0f.cx
 
   - name: "🇺🇸openproxylist.com vless-US-2"
     type: vless
@@ -147,18 +152,6 @@ proxies:
     ws-headers:
       Host: aIs.SpEeDtEsT.nEt
 
-  - name: "🇰🇷openproxylist.com vless-KR"
-    type: vless
-    server: 140.238.17.157
-    port: 443
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.rocks
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.rocks
-
   - name: "🇹🇼openproxylist.com ss-TW-4"
     type: ss
     server: r3mrcg00129437x.cybervena.com
@@ -175,24 +168,24 @@ proxies:
     password: a9a0d092-6f0e-4701-81ee-454643d6d506
     udp: true
 
-  - name: "🇰🇷openproxylist.com vless-KR-2"
+  - name: "🇨🇦openproxylist.com vless-CA"
     type: vless
-    server: 140.238.17.157
+    server: 43.155.187.201
     port: 443
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    uuid: 981fca81-5be1-41f8-ac9b-d138e8109943
     tls: true
-    servername: sni.111000.v6.rocks
+    servername: babayaga-6i7.pages.dev
     network: ws
-    ws-path: /?ed=2560&https://t.me/WangCai2🇨🇳
+    ws-path: /?ed=2560&Telegram🇨🇳@WangCai2
     ws-headers:
-      Host: sni.111000.v6.rocks
+      Host: babayaga-6i7.pages.dev
 
   - name: "🇿🇦openproxylist.com ss-ZA"
     type: ss
     server: 20.87.107.99
     port: 443
     cipher: chacha20-ietf-poly1305
-    password: akMKO9KXowxFcx5A
+    password: VKcGHydApr9F7Gux
     udp: true
 
   - name: "🇸🇪openproxylist.com ss-SE"
@@ -268,11 +261,33 @@ proxies:
 
   - name: "🇹🇼openproxylist.com ss-TW-8"
     type: ss
-    server: r3mrcg001269pz2.cybervena.com
+    server: 36.230.5.241
     port: 50099
     cipher: chacha20-ietf-poly1305
     password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
     udp: true
+
+  - name: "🇺🇸openproxylist.com vless-US-3"
+    type: vless
+    server: 174.136.205.68
+    port: 443
+    uuid: cc0c5ff2-00b5-4dcb-8811-076c637911c4
+    tls: true
+    servername: navi.bankrate.com
+    network: tcp
+    reality-opts:
+      public-key: UT9tFQOdy54SeW_tg-XQN3QkGYoWUpO_88XFXijkrXc
+      short-id: 2da72ce6
+
+  - name: "🇯🇵openproxylist.com vless-JP-2"
+    type: vless
+    server: 47.79.144.103
+    port: 25242
+    uuid: a12b0d31-f599-498e-b76e-8558a14b766b
+    tls: false
+    servername: 47.79.144.103
+    network: ws
+    ws-path: /a12b0d31
 
   - name: "🇹🇼openproxylist.com ss-TW-9"
     type: ss
@@ -300,7 +315,7 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇯🇵openproxylist.com vless-JP-2"
+  - name: "🇯🇵openproxylist.com vless-JP-3"
     type: vless
     server: dongjing4.zqjsqapi.com
     port: 443
@@ -323,6 +338,26 @@ proxies:
     ws-headers:
       Host: jp01.a0a.xyz
     servername: jp01.a0a.xyz
+
+  - name: "🇯🇵openproxylist.com vless-JP-4"
+    type: vless
+    server: node3.jjjjjj.eu.cc
+    port: 443
+    uuid: df230a7c-a9ba-4efc-8f9f-ee03bffc4303
+    tls: true
+    servername: jp2.jjjjjj.eu.cc
+    network: ws
+    ws-path: /jige
+    ws-headers:
+      Host: jp2.jjjjjj.eu.cc
+
+  - name: "🇹🇼openproxylist.com ss-TW-11"
+    type: ss
+    server: r3mrcg007134n4g.cybervena.com
+    port: 50099
+    cipher: chacha20-ietf-poly1305
+    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+    udp: true
 
   - name: "🇪🇸openproxylist.com vless-ES"
     type: vless
@@ -389,7 +424,7 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇺🇸openproxylist.com ss-US-2"
+  - name: "🇺🇸openproxylist.com ss-US"
     type: ss
     server: 107.172.250.161
     port: 59556
@@ -397,7 +432,7 @@ proxies:
     password: QTmLViU4VEmuwbOxUw4IXd
     udp: true
 
-  - name: "🇺🇸openproxylist.com ss-US-3"
+  - name: "🇺🇸openproxylist.com ss-US-2"
     type: ss
     server: 108.181.57.93
     port: 8388
@@ -482,7 +517,7 @@ proxies:
     sni: jp2-8sb.6121999.dpdns.org
     network: tcp
 
-  - name: "🇳🇱openproxylist.com ss-NL-2"
+  - name: "🇳🇱openproxylist.com ss-NL"
     type: ss
     server: 159.223.236.36
     port: 19582
@@ -516,15 +551,14 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇫🇷openproxylist.com trojan-FR"
+  - name: "🇫🇷openproxylist.com trojan-FR-2"
     type: trojan
-    server: 8.6.112.6
+    server: 104.20.6.134
     port: 443
     password: humanity
     udp: true
     tls: true
     sni: www.calmloud.com
-    skip-cert-verify: true
     network: ws
     ws-path: /assignment
     ws-headers:
@@ -546,7 +580,33 @@ proxies:
     password: 6ThD1AgwXc8Stpp7hEohLa
     udp: true
 
-  - name: "🇹🇼openproxylist.com ss-TW-11"
+  - name: "🇦🇱openproxylist.com vless-AL-2"
+    type: vless
+    server: cdn.cdnjst.org
+    port: 443
+    uuid: ae852d97-85f5-45cf-82a4-254eba345480
+    flow: xtls-rprx-vision
+    tls: true
+    servername: cdn.cdnjst.org
+    network: tcp
+    reality-opts:
+      public-key: djH9iD2QV748ocK-wPH7HvDd03lu88zHhS4G-61w6Dc
+      short-id: a120
+
+  - name: "🇺🇸openproxylist.com vmess-US-8"
+    type: vmess
+    server: us1-ss.flyparts.cn
+    port: 10022
+    uuid: 91a988dc-99d5-4c0d-a999-a1d4dd72ad21
+    alterId: 0
+    cipher: auto
+    tls: 
+    network: ws
+    ws-path: /
+    ws-headers:
+      Host: us1-ss.flyparts.cn
+
+  - name: "🇹🇼openproxylist.com ss-TW-12"
     type: ss
     server: nbmrcg0034686rw.cybervena.com
     port: 50099
@@ -580,7 +640,20 @@ proxies:
       public-key: kkRsTNjRh_XrrTM6eZllllldzoL5Z9IqlBkDtmYLMhw
       short-id: c906f73d3ba8211f
 
-  - name: "🇺🇸openproxylist.com vmess-US-8"
+  - name: "🇸🇪openproxylist.com vless-SE"
+    type: vless
+    server: se1.samovargate.com
+    port: 443
+    uuid: 82b5b465-3307-4a25-acef-abd1649bbedf
+    flow: xtls-rprx-vision
+    tls: true
+    servername: www.microsoft.com
+    network: tcp
+    reality-opts:
+      public-key: gwuAehnMX6e-n1fxIenfjx43j3qXXi7Cb4wfnW5VyBQ
+      short-id: f04729f65b9ea261
+
+  - name: "🇺🇸openproxylist.com vmess-US-9"
     type: vmess
     server: 107.175.91.118
     port: 443
@@ -675,6 +748,70 @@ proxies:
     tls: 
     network: tcp
 
+  - name: "🇹🇷openproxylist.com vless-TR"
+    type: vless
+    server: 2.56.127.207
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    flow: xtls-rprx-vision
+    tls: true
+    servername: store.steampowered.com
+    network: tcp
+    reality-opts:
+      public-key: XkRQUOLTBAiIXB1MK9oJwlfn-9XnH53ykk5UE6rDyFc
+      short-id: d4356669ea880400
+
+  - name: "🇸🇰openproxylist.com vless-SK"
+    type: vless
+    server: 5.252.23.53
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    flow: xtls-rprx-vision
+    tls: true
+    servername: www.hyundai.com
+    network: tcp
+    reality-opts:
+      public-key: 576eZ6y-yeWeJnmleDLI5bjyy90_Zd92-rpgy67Q6gg
+      short-id: 555fd87c44d272a4
+
+  - name: "🇮🇪openproxylist.com vless-IE"
+    type: vless
+    server: 85.159.229.84
+    port: 443
+    uuid: ee309de6-154b-45da-aa71-0a3a1ca97c1b
+    tls: true
+    servername: www.google.com
+    network: tcp
+    reality-opts:
+      public-key: ogPhlqdcw50ySFPbrYeLT0_L2vFHDfwAuu1pIKboODY
+      short-id: 93
+
+  - name: "🇯🇵openproxylist.com vless-JP-5"
+    type: vless
+    server: 64.176.57.250
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    flow: xtls-rprx-vision
+    tls: true
+    servername: www.muji.com
+    network: tcp
+    reality-opts:
+      public-key: wLkaWLYNGirBj1ggKZsnmlZiWnwZd99cIShBHVm7BQo
+      short-id: c906f73d3ba8211f
+
+  - name: "🇭🇺openproxylist.com vless-HU"
+    type: vless
+    server: 5.182.38.193
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    flow: xtls-rprx-vision
+    tls: true
+    servername: www.mol.hu
+    network: tcp
+    reality-opts:
+      public-key: w6Z8qD0CCeAW68-mdkJ6b-eHf1o3j_DEoXtlN7lnaCw
+      short-id: a7c8f0630da31f6a
+
   - name: "🇫🇷openproxylist.com vless-FR"
     type: vless
     server: 145.239.8.221
@@ -687,6 +824,19 @@ proxies:
     reality-opts:
       public-key: ESRdmody9xdWVTaCtyGLg_LDopyMm9bUYDWH8NVWtjE
       short-id: c906f73d3ba8211f
+
+  - name: "🇬🇧openproxylist.com vless-GB"
+    type: vless
+    server: 95.179.236.230
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    flow: xtls-rprx-vision
+    tls: true
+    servername: www.argos.co.uk
+    network: tcp
+    reality-opts:
+      public-key: ZpkoOvcRglQoTWJ3B7hiJlmMYTtIu41hJ51FMMdSTDE
+      short-id: 98c3d62ba1c26863
 
   - name: "🇫🇷openproxylist.com vless-FR-2"
     type: vless
@@ -701,20 +851,33 @@ proxies:
       public-key: nUl4-UbSlrf8sCY4QNCKF3dMmgWLWJbgeziVqwfklhU
       short-id: ad3c6641d540b4e1
 
-  - name: "🇺🇸openproxylist.com vless-US-3"
+  - name: "🇳🇱openproxylist.com vless-NL"
     type: vless
-    server: 82.38.63.246
-    port: 8443
-    uuid: ca05976a-2dea-11f1-9ec5-baabcd4be2cd
+    server: 165.232.86.81
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
     flow: xtls-rprx-vision
     tls: true
-    servername: www.apple.com
+    servername: www.aliexpress.com
     network: tcp
     reality-opts:
-      public-key: FVL0r87K3-vUP2KXQX1juLMFEHJtvxwKM-nm6_PYllc
-      short-id: cafe01234567
+      public-key: K1p8iHF_pzt-Y07A-xqyEMvgFPdhWgJ0k6mLmRv42yg
+      short-id: 9876543210abcdef
 
-  - name: "🇺🇸openproxylist.com vmess-US-9"
+  - name: "🇨🇿openproxylist.com vless-CZ"
+    type: vless
+    server: 86.54.82.239
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    flow: xtls-rprx-vision
+    tls: true
+    servername: store.steampowered.com
+    network: tcp
+    reality-opts:
+      public-key: xzCEjrybgdtiyOYNKgEAEWzHjvsE2Pkj198_Ch1gZ2U
+      short-id: 41427aa565e28984
+
+  - name: "🇺🇸openproxylist.com vmess-US-10"
     type: vmess
     server: 47.90.244.153
     port: 8443
@@ -725,7 +888,7 @@ proxies:
     network: ws
     ws-path: /ws
 
-  - name: "🇺🇸openproxylist.com vmess-US-10"
+  - name: "🇺🇸openproxylist.com vmess-US-11"
     type: vmess
     server: 82.198.246.250
     port: 180
@@ -735,7 +898,7 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇺🇸openproxylist.com vmess-US-11"
+  - name: "🇺🇸openproxylist.com vmess-US-12"
     type: vmess
     server: 82.198.246.46
     port: 180
@@ -745,7 +908,7 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇳🇱openproxylist.com ss-NL-3"
+  - name: "🇳🇱openproxylist.com ss-NL-2"
     type: ss
     server: 185.117.91.27
     port: 21836
@@ -753,7 +916,7 @@ proxies:
     password: PDNcrHbGmb5u76Og8NatjZ
     udp: true
 
-  - name: "🇬🇧openproxylist.com vless-GB"
+  - name: "🇬🇧openproxylist.com vless-GB-2"
     type: vless
     server: uk1.fromblancwithlove.com
     port: 8443
@@ -763,7 +926,7 @@ proxies:
     servername: uk1.fromblancwithlove.com
     network: tcp
 
-  - name: "🇳🇱openproxylist.com vless-NL"
+  - name: "🇳🇱openproxylist.com vless-NL-2"
     type: vless
     server: 195.181.173.199
     port: 8443
@@ -795,7 +958,17 @@ proxies:
     password: VKcGHydApr9F7Gux
     udp: true
 
-  - name: "🇹🇷openproxylist.com vless-TR"
+  - name: "🇰🇷openproxylist.com vless-KR"
+    type: vless
+    server: ako.pagate.top
+    port: 443
+    uuid: e6d8d743-a9bc-48c9-be99-8f3cc94d16e1
+    flow: xtls-rprx-vision-udp443
+    tls: true
+    servername: ako.pagate.top
+    network: tcp
+
+  - name: "🇹🇷openproxylist.com vless-TR-2"
     type: vless
     server: 77.92.145.222
     port: 443
@@ -807,7 +980,7 @@ proxies:
       public-key: sSD0sNHv6R3VC1zy_etv-mOTLAurVq3xid4xWne3TxI
       short-id: 4730242d
 
-  - name: "🇺🇸openproxylist.com ss-US-4"
+  - name: "🇺🇸openproxylist.com ss-US-3"
     type: ss
     server: 154.53.60.212
     port: 80
@@ -835,18 +1008,6 @@ proxies:
       public-key: g8IbVqG1g7ht5ckWvYgOxZ9CrStwZt8QYQmTEwIWsTU
       short-id: b5
 
-  - name: "🇫🇮openproxylist.com vless-FI"
-    type: vless
-    server: fi1.cyphervpn.pro
-    port: 443
-    uuid: f7bae22e-20ab-11f1-835c-0242ac110002
-    tls: true
-    servername: fi1.cyphervpn.pro
-    network: tcp
-    reality-opts:
-      public-key: z_mZq7riCGYKcTsXGCFX3KyhLL5PYgG3ydZ8_wM_ZkU
-      short-id: 5bfa0c
-
   - name: "🇪🇸openproxylist.com vmess-ES"
     type: vmess
     server: 85.90.217.42
@@ -857,17 +1018,17 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇭🇰openproxylist.com vless-HK-2"
-    type: vless
-    server: vpn3.rnmcnm.com
-    port: 443
-    uuid: c3d4e5f6-7890-1234-5678-90abcdef1234
-    tls: true
-    servername: vpn3.rnmcnm.com
-    network: ws
-    ws-path: /ray
+  - name: "🇮🇹openproxylist.com vmess-IT"
+    type: vmess
+    server: 45.92.70.236
+    port: 22324
+    uuid: 04621bae-ab36-11ec-b909-0242ac120002
+    alterId: 0
+    cipher: auto
+    tls: 
+    network: tcp
 
-  - name: "🇬🇧openproxylist.com vmess-GB"
+  - name: "🇬🇧openproxylist.com vmess-GB-2"
     type: vmess
     server: 66.163.117.58
     port: 22324
@@ -893,7 +1054,7 @@ proxies:
     password: MholStyHL7DhrewKbpQa20
     udp: true
 
-  - name: "🏳openproxylist.com vmess-"
+  - name: "🇬🇧openproxylist.com vmess-GB-3"
     type: vmess
     server: fsdns1.ectunnelvpn.me
     port: 80
@@ -906,21 +1067,34 @@ proxies:
     ws-headers:
       Host: fsdns1.ectunnelvpn.me
 
-  - name: "🇺🇸openproxylist.com ss-US-5"
+  - name: "🇺🇸openproxylist.com ss-US-4"
     type: ss
     server: 185.111.156.33
-    port: 443
+    port: 80
     cipher: aes-256-gcm
     password: 5mCH4624QflO1cFR
     udp: true
 
-  - name: "🇺🇸openproxylist.com ss-US-6"
+  - name: "🇺🇸openproxylist.com ss-US-5"
     type: ss
     server: 144.126.145.77
     port: 443
     cipher: aes-256-gcm
     password: QzM0NfuMNngbVnZK
     udp: true
+
+  - name: "🇷🇺openproxylist.com vless-RU"
+    type: vless
+    server: 80.92.205.57
+    port: 443
+    uuid: e80c5348-5a5c-41f0-a78d-7a781f47afce
+    flow: xtls-rprx-vision
+    tls: true
+    servername: store.steampowered.com
+    network: tcp
+    reality-opts:
+      public-key: MA_hDjnzRmn4qL60EqyybXYzuE_2Ap8FhJQ82szMDww
+      short-id: 1434b433
 
   - name: "🇫🇷openproxylist.com vless-FR-3"
     type: vless
@@ -942,6 +1116,17 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: aduB9HGxQHjA2SBMRjkHX6
     udp: true
+
+  - name: "🇦🇱openproxylist.com trojan-AL"
+    type: trojan
+    server: 78.159.131.12
+    port: 28259
+    password: MeaDiUmPlkWbZJ2BON8tz
+    udp: true
+    tls: true
+    sni: ads.x5.ru
+    skip-cert-verify: true
+    network: tcp
 
   - name: "🇦🇹openproxylist.com vless-AT-2"
     type: vless
@@ -969,6 +1154,14 @@ proxies:
       public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
       short-id: 9c2378562188c3cb
 
+  - name: "🇿🇦openproxylist.com ss-ZA-4"
+    type: ss
+    server: 102.133.165.160
+    port: 16233
+    cipher: chacha20-ietf-poly1305
+    password: Xsy8Ox4yOV3xLlpxtjzs3X
+    udp: true
+
   - name: "🇮🇳openproxylist.com vless-IN"
     type: vless
     server: 152.70.76.104
@@ -981,183 +1174,88 @@ proxies:
     ws-headers:
       Host: sni.111000.v6.navy
 
-  - name: "🇿🇦openproxylist.com ss-ZA-4"
-    type: ss
-    server: 102.133.165.160
-    port: 16233
-    cipher: chacha20-ietf-poly1305
-    password: Xsy8Ox4yOV3xLlpxtjzs3X
-    udp: true
-
-  - name: "🇮🇳openproxylist.com vless-IN-2"
+  - name: "🇮🇹openproxylist.com vless-IT-2"
     type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
-
-  - name: "🇮🇳openproxylist.com vless-IN-3"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
-
-  - name: "🇮🇳openproxylist.com vless-IN-4"
-    type: vless
-    server: 144.24.126.26
+    server: 194.247.186.199
     port: 443
-    uuid: 1027b850-de79-4a94-b337-eccdac28e141
-    tls: true
-    skip-cert-verify: true
-    servername: g.sandesh.qzz.io
-    network: ws
-    ws-path: /vless
-    ws-headers:
-      Host: g.sandesh.qzz.io
-
-  - name: "🇮🇳openproxylist.com vless-IN-5"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     tls: true
-    servername: sni.111000.v6.navy
+    servername: sni.latonyamadeline.ndjp.net
     network: ws
-    ws-path: /?ed=2560
+    ws-path: /?ed=2560&https://t.me/WangCai2🇨🇳
     ws-headers:
-      Host: sni.111000.v6.navy
+      Host: sni.latonyamadeline.ndjp.net
 
   - name: "🇸🇬openproxylist.com vless-SG"
     type: vless
-    server: 194.59.5.238
-    port: 2096
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    server: auth.vercel.com
+    port: 443
+    uuid: a01daac7-1e65-4645-854d-b47d226f6b08
     tls: true
-    skip-cert-verify: true
-    servername: sni.jpmj.dev
+    servername: y6-3cj.pages.dev
     network: ws
-    ws-path: /?telegram🇨🇳 @wangcai2=
+    ws-path: /
     ws-headers:
-      Host: sni.jpmj.dev
+      Host: y6-3cj.pages.dev
 
   - name: "🇸🇬openproxylist.com vless-SG-2"
     type: vless
-    server: 45.131.211.138
-    port: 2096
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    server: store.ubi.com
+    port: 443
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
     tls: true
     skip-cert-verify: true
-    servername: sni.111000.indevs.in
+    servername: 3-2h8.pages.dev
     network: ws
     ws-path: /
     ws-headers:
-      Host: sni.111000.indevs.in
+      Host: 3-2h8.pages.dev
 
   - name: "🇸🇬openproxylist.com vless-SG-3"
     type: vless
-    server: 14.102.229.43
-    port: 443
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    server: 8.35.211.68
+    port: 2087
+    uuid: 52f94104-7a84-4342-8bcd-96969eb46cbe
     tls: true
     skip-cert-verify: true
-    servername: sni.111000.cc.cd
+    servername: tristandeng.cc.cd
     network: ws
-    ws-path: /?https%3A%2F%2Ft.me%2Fwangcai2%F0%9F%87%A8%F0%9F%87%B3=
+    ws-path: /
     ws-headers:
-      Host: sni.111000.cc.cd
+      Host: tristandeng.cc.cd
 
   - name: "🇸🇬openproxylist.com vless-SG-4"
     type: vless
-    server: 104.26.13.31
-    port: 443
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    skip-cert-verify: true
-    servername: sany.tara132.workers.dev
+    server: 104.18.173.174
+    port: 80
+    uuid: 53342b53-157e-4475-9f3a-40439434e689
+    tls: false
+    servername: c.iamdt.dpdns.org
     network: ws
-    ws-path: /sni.111000.dynv6.net/
+    ws-path: /?ed=2048
     ws-headers:
-      Host: sany.tara132.workers.dev
+      Host: c.iamdt.dpdns.org
 
   - name: "🇸🇬openproxylist.com vless-SG-5"
     type: vless
-    server: 104.129.166.138
+    server: 185.158.133.138
     port: 2096
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     tls: true
     skip-cert-verify: true
     servername: sni.111000.indevs.in
     network: ws
-    ws-path: /
+    ws-path: /?telegram🇨🇳 @wangcai2=
     ws-headers:
       Host: sni.111000.indevs.in
 
-  - name: "🇮🇳openproxylist.com vless-IN-6"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
-
-  - name: "🇺🇸openproxylist.com ss-US-7"
+  - name: "🇺🇸openproxylist.com ss-US-6"
     type: ss
     server: 66.94.125.178
     port: 80
     cipher: aes-256-gcm
     password: 14CLBaFBqwqxBJy6
     udp: true
-
-  - name: "🇮🇳openproxylist.com vless-IN-7"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
-
-  - name: "🇮🇳openproxylist.com vless-IN-8"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
-
-  - name: "🇮🇳openproxylist.com vless-IN-9"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
 
   - name: "🇨🇳openproxylist.com vmess-CN"
     type: vmess
@@ -1171,6 +1269,18 @@ proxies:
     ws-path: /
     ws-headers:
       Host: tms.dingtalk.com
+
+  - name: "🇱🇻openproxylist.com vless-LV"
+    type: vless
+    server: 91.218.143.194
+    port: 43798
+    uuid: b7725d23-840a-4f8e-993c-69b40424cfc0
+    tls: true
+    servername: yahoo.com
+    network: tcp
+    reality-opts:
+      public-key: W3aiFnhZRvZuZP0Zyfy7888t-NbHc0RmMEyFa7fYShU
+      short-id: f71c22
 
   - name: "🇸🇬openproxylist.com trojan-SG"
     type: trojan
@@ -1192,18 +1302,6 @@ proxies:
     cipher: aes-256-gcm
     password: KixLvKzwjekG00rm
     udp: true
-
-  - name: "🏳openproxylist.com vless-"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
 
   - name: "🇬🇧openproxylist.com ss-GB-3"
     type: ss
@@ -1237,32 +1335,7 @@ proxies:
     password: pKEW8JPByTVTLtM
     udp: true
 
-  - name: "🇫🇮openproxylist.com vless-FI-2"
-    type: vless
-    server: 107.181.151.39
-    port: 443
-    uuid: ff40696b-06d6-443b-9481-8d01eddd13e1
-    flow: xtls-rprx-vision
-    tls: true
-    servername: www.foxsports.com
-    network: tcp
-    reality-opts:
-      public-key: J-dv-HrWfQ_IOoyutv0Kg-rO8QwoRwc02dS1dS_tblk
-      short-id: d659da01fb94
-
-  - name: "🇮🇳openproxylist.com vless-IN-10"
-    type: vless
-    server: 152.70.76.104
-    port: 46000
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.v6.navy
-    network: ws
-    ws-path: /?ed=2560
-    ws-headers:
-      Host: sni.111000.v6.navy
-
-  - name: "🇳🇱openproxylist.com vless-NL-2"
+  - name: "🇳🇱openproxylist.com vless-NL-3"
     type: vless
     server: 5.180.97.139
     port: 443
@@ -1317,7 +1390,7 @@ proxies:
       Host: n1753348736.lie5d.cyou
     servername: n1753348736.lie5d.cyou
 
-  - name: "🇺🇸openproxylist.com ss-US-8"
+  - name: "🇺🇸openproxylist.com ss-US-7"
     type: ss
     server: 154.53.60.197
     port: 80
@@ -1325,9 +1398,9 @@ proxies:
     password: 8rb580EBG4l7tO8K
     udp: true
 
-  - name: "🇫🇷openproxylist.com vless-FR-4"
+  - name: "🇳🇱openproxylist.com vless-NL-4"
     type: vless
-    server: 62.210.91.10
+    server: 51.158.206.86
     port: 23576
     uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
     flow: xtls-rprx-vision
@@ -1346,19 +1419,20 @@ proxies:
     password: QFWzCw2uX9B9i6qAYeFBIE
     udp: true
 
-  - name: "🇺🇸openproxylist.com vless-US-4"
+  - name: "🇬🇧openproxylist.com vless-GB-3"
     type: vless
-    server: 167.88.160.144
+    server: 158.220.88.180
     port: 8443
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     tls: true
+    skip-cert-verify: true
     servername: sni.111000.indevs.in
     network: ws
     ws-path: /
     ws-headers:
       Host: sni.111000.indevs.in
 
-  - name: "🇫🇮openproxylist.com vless-FI-3"
+  - name: "🇫🇮openproxylist.com vless-FI"
     type: vless
     server: dns.dressforida.monster
     port: 443
@@ -1381,19 +1455,15 @@ proxies:
     tls: 
     network: tcp
 
-  - name: "🇮🇳openproxylist.com vless-IN-11"
-    type: vless
-    server: 64.227.174.213
-    port: 2053
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    servername: sni.111000.indevs.in
-    network: ws
-    ws-path: /?ed=2560&Telegram🇨🇳+@WangCai2
-    ws-headers:
-      Host: sni.111000.indevs.in
+  - name: "🇯🇵openproxylist.com ss-JP"
+    type: ss
+    server: 193.135.174.135
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
 
-  - name: "🇺🇸openproxylist.com ss-US-9"
+  - name: "🇺🇸openproxylist.com ss-US-8"
     type: ss
     server: tinkered-pennies-puppies.freesocks.work
     port: 443
@@ -1401,7 +1471,7 @@ proxies:
     password: hbGrpfvNrJsUmKmPbR3iY2
     udp: true
 
-  - name: "🇺🇸openproxylist.com vless-US-5"
+  - name: "🇺🇸openproxylist.com vless-US-4"
     type: vless
     server: 45.82.251.115
     port: 8880
@@ -1410,68 +1480,11 @@ proxies:
     servername: 45.82.251.115
     network: grpc
 
-  - name: "🇳🇱openproxylist.com ss-NL-4"
+  - name: "🇳🇱openproxylist.com ss-NL-3"
     type: ss
     server: 82.38.31.62
     port: 8080
     cipher: chacha20-ietf-poly1305
     password: oZIoA69Q8yhcQV8ka3Pa3A
-    udp: true
-
-  - name: "🇩🇪openproxylist.com ss-DE-3"
-    type: ss
-    server: 2.58.81.221
-    port: 80
-    cipher: aes-256-gcm
-    password: 9dQS3geeylyrRth9
-    udp: true
-
-  - name: "🇳🇱openproxylist.com vless-NL-3"
-    type: vless
-    server: 51.158.206.97
-    port: 23576
-    uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-    flow: xtls-rprx-vision
-    tls: true
-    servername: fuck.rkn
-    network: tcp
-    reality-opts:
-      public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-      short-id: 01
-
-  - name: "🇬🇧openproxylist.com ss-GB-4"
-    type: ss
-    server: 149.102.149.207
-    port: 443
-    cipher: aes-256-gcm
-    password: umWwoQJEJGf74SLe
-    udp: true
-
-  - name: "🇸🇬openproxylist.com ss-SG"
-    type: ss
-    server: 194.233.94.119
-    port: 80
-    cipher: aes-256-gcm
-    password: 8t2xeemUtyui4zAv
-    udp: true
-
-  - name: "🇱🇻openproxylist.com vless-LV"
-    type: vless
-    server: 90.156.255.198
-    port: 51114
-    uuid: 8b575b35-3c7c-42b0-ac80-2aa6b0d7717c
-    tls: true
-    servername: yahoo.com
-    network: tcp
-    reality-opts:
-      public-key: lf7NJGZAcj3b-YdbsmD6oEISr0dZRjp_gM8ZhLHwb0U
-      short-id: 772e
-
-  - name: "🇳🇱openproxylist.com ss-NL-5"
-    type: ss
-    server: 193.135.174.135
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
 
