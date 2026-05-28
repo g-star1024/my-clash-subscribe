@@ -1,7 +1,7 @@
 const fs = require('fs');
 const https = require('https');
 
-// ----------------------------- 工具函数 -----------------------------
+// ----------------------------- 工具函数修正 -----------------------------
 function base64Decode(str) {
     try {
         let b64 = str.replace(/-/g, '+').replace(/_/g, '/');
